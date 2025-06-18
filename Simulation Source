@@ -1,0 +1,18 @@
+module sim();
+reg clk,rst;
+wire [7:0]ac_fin,ext_fin;
+wire [3:0]p_fin;
+wire cb_fin;
+
+proc uut(.clk(clk),.rst(rst),.ac_fin(ac_fin),.ext_fin(ext_fin),.p_fin(p_fin),.cb_fin(cb_fin));
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+    initial begin
+        rst = 1; #1
+        rst= 0; #9
+        rst = 1;
+    end
+
+endmodule
